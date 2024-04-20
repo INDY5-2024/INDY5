@@ -1,23 +1,31 @@
-from smtplib import SMTP
-import datetime
+import smtplib
+import time
+import busio
+import board
+import adafruit_adxl34x
 
-debuglevel = 0
+# creates SMTP session
+s = smtplib.SMTP('smtp.gmail.com (http://smtp.gmail.com/)', 587)
+i2c = busio.I2C(board.SCL, board.SDA)
+accelerometer = adafruit_adxl34x.ADXL345(i2c)
+accelerometer.enable_tap_detection()
+# start TLS for security
+s.starttls()
+# Authentication
+s.login("SenderEmail@gmail.com (mailto:SenderEmail@gmail.com)", "CHANGED FOR PRIVACY")
+# message to be sent
+message = "The player has been hit hard enough to warrant a concussion. Please Remove them from the game and run concussion protocol"
 
-smtp = SMTP()
-smtp.set_debuglevel(debuglevel)
-smtp.connect('COVERED DUE TO PRIVACY', 26)
-smtp.login('USERNAME@DOMAIN', 'PASSWORD')
+while True:
 
-from_addr = "Patrick O'Connell <my@email.net>"
-to_addr = "example@bar.com"
+print("%f %f %f" % accelerometer.acceleration)
 
-subj = "hello"
-date = datetime.datetime.now().strftime( "%d/%m/%Y %H:%M" )
-
-message_text = "The Player wearing this helmet (HELMET ID) has suffered a concussion level of force. Please remove him from the game and run concussion protocol"
-
-msg = "From: %s\nTo: %s\nSubject: %s\nDate: %s\n\n%s" 
-        % ( from_addr, to_addr, subj, date, message_text )
-
-smtp.sendmail(from_addr, to_addr, msg)
-smtp.quit()
+print("Tapped: %s" % accelerometer.events["tap"])
+if accelerometer.events["tap"]==True:
+print("worked")
+# sending the mail
+s.sendmail("SenderEmail@gmail.com (mailto:SenderEmail@gmail.com)
+", "
+Recipient@gmail.com (mailto:Recipient@gmail.com)
+", message)
+time.sleep(0.5)
