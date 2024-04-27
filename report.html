@@ -46,6 +46,17 @@
             bottom: 0;
             width: 100%;
         }
+
+        /* Responsive styles for embedded PDF */
+        .pdf-container {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .pdf-object {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -62,7 +73,9 @@
         <h2>Final Report: INDY5 Helmet Project</h2>
         <!-- Other content here -->
         <h3>Final Report PDF</h3>
-        <p><a href="Final Report_ INDY5 Helmet Project.pdf">Download Final Report PDF</a></p>
+        <div class="pdf-container">
+            <embed class="pdf-object" src="Final Report_ INDY5 Helmet Project.pdf" type="application/pdf">
+        </div>
     </section>
     <footer>
         <p>&copy; 2024 Team INDY5 - Helmet. All rights reserved.</p>
