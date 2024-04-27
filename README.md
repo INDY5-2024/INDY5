@@ -4,7 +4,9 @@ CS4308, Spring 2024
 ![image](https://github.com/INDY5-2024/INDY5/assets/158235215/3488f780-b129-444d-928e-f14c00fa3fa5) ![image](https://github.com/INDY5-2024/INDY5/assets/158235215/297eb713-5ca7-4bd0-935d-2f4d04c384f5)
 
 
+Website Link: https://indy5-2024.github.io/INDY5/index.html
 
+Video Link: https://youtu.be/kMnsiqfIzmE
 
 
 Abstract:
@@ -15,3 +17,4 @@ The project centers around integrating these technologies into a smart helmet sy
 
 References and Uses of other Repositories:
 https://github.com/adafruit/Adafruit_CircuitPython_ADXL34x
+^This has to be downloaded in order to work.
