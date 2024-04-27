@@ -46,6 +46,22 @@
             bottom: 0;
             width: 100%;
         }
+
+        /* Responsive styles for iframe */
+        .iframe-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -61,7 +77,13 @@
     </nav>
     <section>
         <h2>Project Presentation</h2>
-        <p>This page will contain our project presentation materials such as slides or video presentations.</p>
+        <h3>YouTube Video</h3>
+        <div class="iframe-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h3>PowerPoint Presentation</h3>
+        <!-- Add a link to your PowerPoint presentation here -->
+        <p><a href="path_to_your_powerpoint.pptx" target="_blank">View PowerPoint Presentation</a></p>
     </section>
     <footer>
         <p>&copy; 2024 Team INDY5 - Helmet. All rights reserved.</p>
